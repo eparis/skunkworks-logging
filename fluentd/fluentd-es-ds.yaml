@@ -1,5 +1,5 @@
-apiVersion: apps/v1beta2
 kind: DaemonSet
+apiVersion: "extensions/v1beta1"
 metadata:
   name: eparis-fluentd-es-v2.0.1
   labels:
