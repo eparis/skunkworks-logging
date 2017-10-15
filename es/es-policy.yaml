@@ -1,0 +1,33 @@
+kind: ClusterRole
+metadata:
+  name: eparis-elasticsearch-logging
+  labels:
+    k8s-app: elasticsearch-logging
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - "services"
+  - "namespaces"
+  - "endpoints"
+  verbs:
+  - "get"
+---
+kind: ClusterRoleBinding
+metadata:
+  name: eparis-elasticsearch-logging
+  labels:
+    k8s-app: elasticsearch-logging
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+subjects:
+- kind: ServiceAccount
+  name: eparis-elasticsearch-logging
+  namespace: eparis-logging
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: eparis-elasticsearch-logging
+  apiGroup: ""
