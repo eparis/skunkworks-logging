@@ -16,6 +16,7 @@ oc annotate namespace eparis-logging 'openshift.io/node-selector='
 for quota in $(oc get quota --no-headers | cut -f 1 -d ' '); do
   oc delete quota "${quota}"
 done
+
 oc delete limitrange resource-limits
 
 for dir in "${dirs[@]}"; do
@@ -28,3 +29,7 @@ for dir in "${dirs[@]}"; do
 done
 oc adm policy add-scc-to-user hostmount-anyuid -z eparis-fluentd-es
 oc adm policy add-scc-to-user anyuid -z eparis-elasticsearch-logging
+
+for pod in $(oc get pod -o json | jq '.items[].metadata.name' | tr -d '"'); do
+  oc delete pod "${pod}"
+done
