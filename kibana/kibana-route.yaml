@@ -6,10 +6,7 @@ metadata:
   name: eparis-kibana
 spec:
   port:
-    targetPort: http
-  tls:
-    insecureEdgeTerminationPolicy: Redirect
-    termination: edge
+    targetPort: ui
   to:
     kind: Service
     name: eparis-kibana-logging
