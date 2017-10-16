@@ -16,6 +16,7 @@ spec:
       labels:
         k8s-app: kibana-logging
     spec:
+      serviceAccountName: eparis-elasticsearch-logging
       containers:
       - name: eparis-kibana-logging
         image: docker.elastic.co/kibana/kibana:5.6.2
