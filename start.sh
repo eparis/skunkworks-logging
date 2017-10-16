@@ -29,6 +29,7 @@ for dir in "${dirs[@]}"; do
 done
 oc adm policy add-scc-to-user hostmount-anyuid -z eparis-fluentd-es
 oc adm policy add-scc-to-user anyuid -z eparis-elasticsearch-logging
+oc adm policy add-scc-to-user privileged -z eparis-elasticsearch-logging
 
 for pod in $(oc get pod -o json | jq '.items[].metadata.name' | tr -d '"'); do
   oc delete pod "${pod}"
