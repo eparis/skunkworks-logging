@@ -11,7 +11,7 @@ kibana
 oc new-project eparis-logging
 
 oc annotate namespace eparis-logging 'quota.openshift.io/cluster-resource-override-enabled=false'
-oc annotate namespace eparis-logging 'openshift.io/node-selector=""'
+oc annotate namespace eparis-logging 'openshift.io/node-selector='
 
 for quota in $(oc get quota --no-headers | cut -f 1 -d ' '); do
   oc delete quota "${quota}"
