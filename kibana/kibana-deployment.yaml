@@ -28,7 +28,7 @@ spec:
             cpu: 100m
         env:
           - name: ELASTICSEARCH_URL
-            value: http://elasticsearch-logging:9200
+            value: http://eparis-elasticsearch-logging:9200
           - name: SERVER_BASEPATH
             value: /api/v1/proxy/namespaces/eparis-logging/services/eparis-kibana-logging
           - name: XPACK_MONITORING_ENABLED
