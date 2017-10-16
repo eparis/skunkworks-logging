@@ -24,6 +24,8 @@ spec:
       containers:
       - name: eparis-fluentd-es
         image: gcr.io/google-containers/fluentd-elasticsearch:v2.0.1
+        securityContext:
+          hostaccess: true
         env:
         - name: FLUENTD_ARGS
           value: --no-supervisor -q
