@@ -24,7 +24,7 @@ for dir in "${dirs[@]}"; do
     for file in "${files[@]}"; do
       oc create -f "${file}"
     done
-  popd
+  popd > /dev/null
 done
 oc adm policy add-scc-to-user hostmount-anyuid -z eparis-fluentd-es
 oc adm policy add-scc-to-user anyuid -z eparis-elasticsearch-logging
