@@ -7,3 +7,4 @@ oc delete clusterrole eparis-fluentd-es
 oc adm policy remove-scc-from-user hostmount-anyuid -z eparis-fluentd-es
 oc adm policy remove-scc-from-user anyuid -z eparis-elasticsearch-logging
 oc delete project eparis-logging
+oc project default
