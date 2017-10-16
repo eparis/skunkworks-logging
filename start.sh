@@ -16,6 +16,7 @@ oc annotate namespace eparis-logging 'openshift.io/node-selector='
 for quota in $(oc get quota --no-headers | cut -f 1 -d ' '); do
   oc delete quota "${quota}"
 done
+oc delete limitrange resource-limits
 
 for dir in "${dirs[@]}"; do
   pushd "${dir}" > /dev/null
